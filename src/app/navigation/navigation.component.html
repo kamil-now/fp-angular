@@ -1,1 +1,10 @@
-<p>navigation works!</p>
+<nav class="navbar bg-primary">
+  <ul class="nav">
+    <ng-container>
+
+      <li class="nav-item" *ngFor="let item of navigation">
+        <a class="nav-link text-light" [routerLink]="item.link">{{item.title}}</a>
+      </li>
+    </ng-container>
+  </ul>
+</nav>
