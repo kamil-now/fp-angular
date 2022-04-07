@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'contact',
     component: ContactComponent
   },
+  {
+    path: 'products',
+    loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule)
+  },
   { 
     path: '**',
     component: PageNotFoundComponent

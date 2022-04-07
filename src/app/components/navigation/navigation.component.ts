@@ -12,6 +12,10 @@ export class NavigationComponent {
       title: 'Home'
     },
     {
+      link: '/products' ,
+      title: 'Products'
+    },
+    {
       link:'/contact',
       title: 'Contact'
     }
