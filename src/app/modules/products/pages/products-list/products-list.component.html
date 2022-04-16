@@ -1,1 +1,15 @@
-<p>products-list works!</p>
+<div class="list-group">
+  <div
+    class="list-group-item list-group-item-action d-flex justify-content-between"
+    *ngFor="let product of products"
+  >
+    <div>
+      <span class="me-3">{{ product.name }}</span>
+      <span class="fw-bold" [class.text-danger]="product.price === 0">
+        {{ product.price | currency }}
+      </span>
+    </div>
+
+    <button class="btn btn-info me-2" tabindex="0">View Details</button>
+  </div>
+</div>

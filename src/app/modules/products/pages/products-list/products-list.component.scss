@@ -1,0 +1,26 @@
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: 0.25rem;
+}
+
+.list-group-item {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid #dfd7ca;
+  &:not(:first-child) {
+    border-top-width: 0;
+  }
+  &:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+  &-action {
+    width: 100%;
+    color: #3e3f3a;
+    text-align: inherit;
+  }
+}

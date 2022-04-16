@@ -54,3 +54,18 @@ a {
   text-decoration: none;
   background-color: transparent;
 }
+
+.btn {
+  font-size: 0.875rem;
+  &-info {
+    color: #fff;
+    background-color: #29abe0;
+    border-color: #29abe0;
+    &:focus,
+    &:hover {
+      color: #fff;
+      background-color: #1d95c6;
+      border-color: #1b8dbb;
+    }
+  }
+}
