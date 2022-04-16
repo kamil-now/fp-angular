@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+$blue: #325d88;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #d9534f;
+$orange: #f47c3c;
+$yellow: #ffc107;
+$green: #93c54b;
+$teal: #20c997;
+$cyan: #29abe0;
+$white: #fff;
+$gray: #8e8c84;
+$gray-dark: #3e3f3a;
+$primary: #325d88;
+$secondary: #8e8c84;
+$success: #93c54b;
+$info: #29abe0;
+$warning: #f47c3c;
+$danger: #d9534f;
+$light: #f8f5f0;
+$dark: #3e3f3a;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+body {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $dark;
+  text-align: left;
+}
+.navbar {
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-expand {
+  .navbar-nav {
+    .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+  }
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 0.9rem;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}

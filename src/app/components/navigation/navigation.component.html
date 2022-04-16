@@ -1,10 +1,14 @@
-<nav class="navbar bg-primary">
-  <ul class="nav">
-    <ng-container>
-
-      <li class="nav-item" *ngFor="let item of navigation">
-        <a class="nav-link text-light" [routerLink]="item.link">{{item.title}}</a>
-      </li>
-    </ng-container>
-  </ul>
+<nav
+  class="navbar navbar-expand navbar-dark bg-primary d-flex justify-content-between"
+>
+  <div class="nav navbar-nav">
+    <a
+      *ngFor="let item of navigation"
+      class="nav-item nav-link"
+      routerLinkActive="active"
+      [routerLink]="item.link"
+      [href]="item.link"
+      >{{ item.title }}</a
+    >
+  </div>
 </nav>

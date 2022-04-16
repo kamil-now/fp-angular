@@ -8,7 +8,7 @@ import { Component } from '@angular/core'
 export class NavigationComponent {
   navigation = [
     {
-      link: '/' ,
+      link: '/home' ,
       title: 'Home'
     },
     {
