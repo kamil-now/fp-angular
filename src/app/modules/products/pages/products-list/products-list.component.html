@@ -1,7 +1,7 @@
 <div class="list-group">
   <div
     class="list-group-item list-group-item-action d-flex justify-content-between"
-    *ngFor="let product of productService.getAllProducts() | async"
+    *ngFor="let product of products$ | async"
   >
     <div>
       <span class="me-3">{{ product.name }}</span>

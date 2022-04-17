@@ -11,12 +11,12 @@ import { ProductService } from 'src/app/modules/core/services/product.service'
 })
 export class ProductDetailsComponent {
 
-  get product$(): Observable<Product | undefined> {
-    return this._activatedRoute.params.pipe(
-      pluck('id'),
-      mergeMap(id => this._productService.getProductById(id))
-    )
-  }
+  readonly product$: Observable<Product> =
+    this._activatedRoute.params
+      .pipe(
+        pluck('id'),
+        mergeMap(id => this._productService.getProductById(id))
+      )
 
   constructor(
     private readonly _activatedRoute: ActivatedRoute,

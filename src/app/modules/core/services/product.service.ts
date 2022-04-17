@@ -1,12 +1,13 @@
+import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Observable, of } from 'rxjs'
+import { BehaviorSubject, Observable } from 'rxjs'
 import { Product } from 'src/app/models/product'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private _products: Product[] = [
+  private _products = new BehaviorSubject<Product[]>([
     {
       id: '1',
       name: 'Product #1',
@@ -25,13 +26,22 @@ export class ProductService {
       description: 'Product #3 description',
       price: 3.23
     }
-  ]
+  ])
 
-  getAllProducts(): Observable<Product[]> {
-    return of(this._products)
+  constructor(
+    private readonly _http: HttpClient
+  ) {
   }
 
-  getProductById(id: string): Observable<Product | undefined> {
-    return of(id ? this._products.find(x => x.id === id) : undefined)
+  getAllProducts(): Observable<Product[]> {
+    return this._products.asObservable()
+  }
+
+  getProductById(id: string): Observable<Product> {
+    return this._http.get<Product>(`/api/products/${id}`)
+  }
+
+  fetchProducts(): void {
+    this._http.get<Product[]>('/api/products').subscribe(products => this._products.next(products))
   }
 }
