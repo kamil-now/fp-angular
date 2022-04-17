@@ -1,1 +1,28 @@
-<p>product-details works!</p>
+<button routerLink="/products" class="btn btn-info mb-2" tabindex="0">
+  Back to list
+</button>
+<ng-container
+  *ngTemplateOutlet="productTemplate; context: { $implicit: product$ | async }"
+></ng-container>
+<ng-template #productTemplate let-product>
+  <div class="card shadow">
+    
+    <div class="card-body">
+      Name:
+      <h5 class="card-title" *ngIf="product; else loaderTemplate">
+        {{ product.name }}
+      </h5>
+      Price:
+      <h2 class="text-primary" *ngIf="product; else loaderTemplate">
+        {{ product.price | currency }}
+      </h2>
+      Description:
+      <p class="card-text" *ngIf="product; else loaderTemplate">
+        {{ product.description }}
+      </p>
+    </div>
+  </div>
+</ng-template>
+<ng-template #loaderTemplate>
+  <ngx-skeleton-loader animation="progress"> </ngx-skeleton-loader>
+</ng-template>
