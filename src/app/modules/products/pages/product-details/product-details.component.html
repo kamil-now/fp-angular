@@ -7,6 +7,16 @@
 <ng-template #productTemplate let-product>
   <div class="card shadow">
     
+    <ngx-skeleton-loader
+      animation="progress"
+      [theme]="{
+        height: '180px',
+        width: '100%',
+        'border-top-right-radius': 'inherit',
+        'border-top-left-radius': 'inherit'
+      }"
+    >
+    </ngx-skeleton-loader>
     <div class="card-body">
       Name:
       <h5 class="card-title" *ngIf="product; else loaderTemplate">
