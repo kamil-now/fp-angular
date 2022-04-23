@@ -20,4 +20,8 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
     this._productService.fetchProducts()
   }
+
+  onSearch(value: string): void {
+    this._productService.fetchProducts(value)
+  }
 }
