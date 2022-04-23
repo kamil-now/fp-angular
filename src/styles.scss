@@ -57,8 +57,8 @@ a {
 
 .btn {
   font-size: 0.875rem;
+  color: #fff;
   &-info {
-    color: #fff;
     background-color: #29abe0;
     border-color: #29abe0;
     &:focus,
@@ -68,4 +68,45 @@ a {
       border-color: #1b8dbb;
     }
   }
+  &-danger {
+    background-color: #d9534f;
+    border-color: #d9534f;
+    &:focus,
+    &:hover {
+      color: #fff;
+      background-color: #d23430;
+      border-color: #c9302c;
+    }
+  }
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: 0.75rem + 0.25rem * (6 - $i);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  font-size: 0.875rem;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.error-message {
+  font-size: 12px;
+  color: #d9534f;
+}
+
+.alert {
+  padding: 0.75rem 1.25rem;
 }

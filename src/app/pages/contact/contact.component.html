@@ -1,1 +1,68 @@
-<p>contact works!</p>
+<h2>Contact</h2>
+<div class="card shadow p-3">
+  <div
+    *ngIf="messageSent || error; else formTemplate"
+    role="alert"
+    class="alert"
+    [ngClass]="{ 'alert-success': !error, 'alert-danger': error }"
+  >
+    <strong>
+      {{
+        error
+          ? "Unexpected error. The message has not been sent."
+          : "Thank you. Message was sent successfully."
+      }}
+    </strong>
+  </div>
+</div>
+<ng-template #formTemplate>
+  <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        ngModel
+        class="form-control"
+        type="email"
+        name="email"
+        required
+        #email="ngModel"
+        email
+      />
+      <app-form-errors
+        [model]="email"
+        [messages]="{
+          required: 'Email is required',
+          email: 'This is not valid email'
+        }"
+      ></app-form-errors>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea
+        #messageValue
+        id="message"
+        ngModel
+        class="form-control"
+        name="message"
+        required
+        maxlength="200"
+        #message="ngModel"
+      >
+      </textarea>
+      <app-form-errors
+        [model]="message"
+        [messages]="{
+          required: 'Message is required'
+        }"
+        [customValidation]="[
+          {
+            isError: messageValue.value.length >= 200,
+            message: 'Message cannot be longer than 200 characters'
+          }
+        ]"
+      ></app-form-errors>
+    </div>
+    <button class="btn btn-danger mt-2" type="submit">Send message</button>
+  </form>
+</ng-template>
