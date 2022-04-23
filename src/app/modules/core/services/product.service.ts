@@ -41,7 +41,8 @@ export class ProductService {
     return this._http.get<Product>(`/api/products/${id}`)
   }
 
-  fetchProducts(): void {
-    this._http.get<Product[]>('/api/products').subscribe(products => this._products.next(products))
+  fetchProducts(search?: string): void {
+    this._http.get<Product[]>('/api/products' + (search && search?.length > 0 ? `?q=${search}` : ''))
+      .subscribe(products => this._products.next(products))
   }
 }
