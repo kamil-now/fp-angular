@@ -1,0 +1,7 @@
+<ng-container *ngIf="model.touched">
+  <ng-container *ngFor="let error of allErrors">
+    <div class="error-message">
+      {{ error }}
+    </div>
+  </ng-container>
+</ng-container>
