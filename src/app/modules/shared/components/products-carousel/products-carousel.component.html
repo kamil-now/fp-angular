@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="d-flex flex-row justify-content-between">
+    <div
+      *ngFor="let product of products$ | async"
+      class="card shadow m-3 p-3 w-100"
+    >
+      <div class="col-sm px-3">{{ product.name }}</div>
+      <div class="col-sm px-3">{{ product.price | currency }}</div>
+      <div class="col-sm px-3">{{ product.description }}</div>
+    </div>
+  </div>
+</div>
