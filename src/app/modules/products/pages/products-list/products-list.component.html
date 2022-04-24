@@ -1,5 +1,11 @@
-<app-products-filter (search)="onSearch($event)">
-</app-products-filter>
+<app-products-filter (search)="onSearch($event)"> </app-products-filter>
+<pagination
+  *ngIf="total$ | async as total"
+  class="mb-3"
+  [itemsPerPage]="pageSize"
+  [totalItems]="total"
+  (pageChanged)="pageChanged($event)"
+></pagination>
 <div class="list-group">
   <div
     class="list-group-item list-group-item-action d-flex justify-content-between"

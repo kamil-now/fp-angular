@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HttpClientModule } from '@angular/common/http'
+import { PaginationModule } from 'node_modules/ngx-bootstrap/pagination'
 
 
 
@@ -8,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http'
   declarations: [],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    PaginationModule.forRoot()
   ]
 })
 export class CoreModule { }

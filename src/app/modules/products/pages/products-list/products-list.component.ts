@@ -11,6 +11,9 @@ import { ProductService } from 'src/app/modules/core/services/product.service'
 export class ProductsListComponent implements OnInit {
 
   readonly products$: Observable<Product[]> = this._productService.getAllProducts()
+  readonly total$: Observable<number> = this._productService.getTotal()
+  readonly pageSize = 5
+  search: string = ''
 
   constructor(
     private readonly _productService: ProductService
@@ -18,10 +21,19 @@ export class ProductsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._productService.fetchProducts()
+    this.fetchProducts()
   }
 
   onSearch(value: string): void {
-    this._productService.fetchProducts(value)
+    this.search = value
+    this.fetchProducts()
+  }
+
+  pageChanged(e: { page: number }): void {
+    this.fetchProducts(e.page)
+  }
+
+  private fetchProducts(page?: number): void {
+    this._productService.fetchProducts(page, this.pageSize, this.search)
   }
 }

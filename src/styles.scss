@@ -110,3 +110,13 @@ label {
 .alert {
   padding: 0.75rem 1.25rem;
 }
+
+.list-group-item-action {
+  &:focus,
+  &:hover {
+    background-color: #f8f5f0 !important;
+  }
+  &:active {
+    background-color: #dfd7ca !important;
+  }
+}
