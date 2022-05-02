@@ -24,3 +24,13 @@
     text-align: inherit;
   }
 }
+
+.list-group-item-action {
+  &:focus,
+  &:hover {
+    background-color: #f8f5f0 !important;
+  }
+  &:active {
+    background-color: #dfd7ca !important;
+  }
+}

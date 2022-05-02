@@ -1,0 +1,26 @@
+.list-group-item-action {
+  &:focus,
+  &:hover {
+      color: #1a3047;
+      background-color: #b6c5d5;
+  }
+}
+
+.list-group-item {
+  &:first-child,
+  &:last-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #dfd7ca;
+  &-primary {
+    color: #1a3047;
+    background-color: #c6d2de;
+  }
+}

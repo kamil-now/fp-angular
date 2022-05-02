@@ -1,0 +1,21 @@
+<h2>Contact form messages</h2>
+<div class="card shadow h-100">
+  <div class="row h-100">
+    <div class="col-4 pe-0">
+      <div class="list-group">
+        <button
+        *ngFor="let message of messages$ | async"
+          type="button"
+          class="list-group-item list-group-item-action"
+          [class.active]="(selectedMessageId$ | async) === message.id"
+          (click)="select(message)"
+        >
+          {{ message.email }}
+        </button>
+      </div>
+    </div>
+    <div class="col-7 ps-0 message-content">
+      <p class="p-3">{{ selectedMessageContent$ | async }}</p>
+    </div>
+  </div>
+</div>

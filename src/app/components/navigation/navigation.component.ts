@@ -19,6 +19,10 @@ export class NavigationComponent {
     {
       link: '/contact',
       title: 'Contact'
+    },
+    {
+      link: '/admin',
+      title: 'Admin'
     }
   ]
 
