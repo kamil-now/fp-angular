@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, OnDestroy } from '@angular/core'
+import { Subject, takeUntil } from 'rxjs'
 import { AuthService } from 'src/app/modules/core/services/auth.service'
 
 @Component({
@@ -6,7 +7,7 @@ import { AuthService } from 'src/app/modules/core/services/auth.service'
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnDestroy {
   readonly navigation = [
     {
       link: '/home',
@@ -19,15 +20,28 @@ export class NavigationComponent {
     {
       link: '/contact',
       title: 'Contact'
-    },
-    {
-      link: '/admin',
-      title: 'Admin'
     }
   ]
+
+  private readonly _isDestroyed = new Subject<void>()
 
   constructor(
     readonly authService: AuthService
   ) {
+    authService.isAuthenticated$
+      .pipe(takeUntil(this._isDestroyed))
+      .subscribe(isLoggedIn => {
+        if (isLoggedIn && !this.navigation.find(x => x.title === 'Admin')) {
+          this.navigation.push({
+            link: '/admin',
+            title: 'Admin'
+          })
+        }
+      })
+  }
+
+  ngOnDestroy(): void {
+    this._isDestroyed.next()
+    this._isDestroyed.complete()
   }
 }
