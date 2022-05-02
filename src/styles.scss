@@ -78,6 +78,16 @@ a {
       border-color: #c9302c;
     }
   }
+  &-secondary {
+    background-color: #8e8c84;
+    border-color: #8e8c84;
+    &:focus,
+    &:hover {
+      color: #fff;
+      background-color: #7b7971;
+      border-color: #74726b;
+    }
+  }
 }
 
 @for $i from 1 through 6 {

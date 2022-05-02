@@ -11,4 +11,17 @@
       >{{ item.title }}</a
     >
   </div>
+  <div *ngIf="authService.isAuthenticated$ | async; else loggedOut">
+    <span class="text-white me-1">
+      {{ authService.userEmail$ | async }}
+    </span>
+    <button class="btn btn-danger" (click)="authService.logout()">
+      Logout
+    </button>
+  </div>
+  <ng-template #loggedOut>
+    <button class="btn btn-secondary" (click)="authService.login()">
+      Login
+    </button>
+  </ng-template>
 </nav>

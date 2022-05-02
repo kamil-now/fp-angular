@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { AuthService } from 'src/app/modules/core/services/auth.service'
 
 @Component({
   selector: 'app-navigation',
@@ -6,18 +7,23 @@ import { Component } from '@angular/core'
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-  navigation = [
+  readonly navigation = [
     {
-      link: '/home' ,
+      link: '/home',
       title: 'Home'
     },
     {
-      link: '/products' ,
+      link: '/products',
       title: 'Products'
     },
     {
-      link:'/contact',
+      link: '/contact',
       title: 'Contact'
     }
   ]
+
+  constructor(
+    readonly authService: AuthService
+  ) {
+  }
 }
