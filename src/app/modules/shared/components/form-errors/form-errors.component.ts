@@ -8,12 +8,12 @@ import { NgModel } from '@angular/forms'
 })
 export class FormErrorsComponent {
 
-  @Input() model!: NgModel
+  @Input() model: NgModel | undefined
   @Input() messages!: { [key: string]: string }
   @Input() customValidation: { isError: boolean, message: string }[] | undefined
 
   get validationErrors(): string[] {
-    return this.model.errors ? Object.keys(this.model.errors).map(x => this.messages[x]) : []
+    return this.model?.errors ? Object.keys(this.model.errors).map(x => this.messages[x]) : []
   }
 
   get customValidationErrors(): string[] {
