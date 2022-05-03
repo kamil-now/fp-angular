@@ -28,6 +28,14 @@ export class ProductService {
     return this._http.get<Product>(`/api/products/${id}`)
   }
 
+  updateProduct(id: string, product: Product): Observable<void> {
+    return this._http.put<void>(`api/products/${id}`, product)
+  }
+
+  createProduct(product: Product): Observable<void> {
+    return this._http.post<void>(`api/products`, product)
+  }
+
   fetchProducts(page?: number, limit?: number, search?: string): void {
     const queryParams: { [key: string]: string } = {}
     queryParams['_page'] = `${page ?? 0}`
