@@ -13,13 +13,12 @@ export class AuthService {
   get userEmail$(): Observable<string> {
     return this._userEmail.asObservable()
   }
-  readonly _userEmail = new BehaviorSubject('')
-  readonly _isAuthenticated = new BehaviorSubject(false)
+  private readonly _userEmail = new BehaviorSubject('')
+  private readonly _isAuthenticated = new BehaviorSubject(false)
 
   constructor(
     private readonly _authService: OAuthService
   ) {
-
     this._authService.user$.subscribe(user => this._userEmail.next(user ? user.email ?? '' : ''))
     this._authService.isAuthenticated$.subscribe(isAuthenticated => this._isAuthenticated.next(isAuthenticated))
   }
