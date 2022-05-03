@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
 import { Product } from 'src/app/models/product'
+import { AuthService } from 'src/app/modules/core/services/auth.service'
 import { ProductService } from 'src/app/modules/core/services/product.service'
 
 @Component({
@@ -16,6 +17,7 @@ export class ProductsListComponent implements OnInit {
   search: string = ''
 
   constructor(
+    public readonly authService: AuthService,
     private readonly _productService: ProductService
   ) {
   }

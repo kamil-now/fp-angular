@@ -1,3 +1,11 @@
+<button
+  *ngIf="authService.isAuthenticated$ | async"
+  routerLink="/admin/products/add"
+  class="btn btn-danger mb-2"
+  tabindex="0"
+>
+  Add new product
+</button>
 <app-products-filter (search)="onSearch($event)"> </app-products-filter>
 <pagination
   *ngIf="total$ | async as total"
