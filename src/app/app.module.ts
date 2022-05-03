@@ -7,6 +7,7 @@ import { AppComponent } from './app.component'
 import { NavigationComponent } from './components/navigation/navigation.component'
 import { CoreModule } from './modules/core/core.module'
 import { SharedModule } from './modules/shared/shared.module'
+import { CartComponent } from './pages/cart/cart.component'
 import { ContactComponent } from './pages/contact/contact.component'
 import { HomeComponent } from './pages/home/home.component'
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component'
@@ -18,7 +19,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     HomeComponent,
     NavigationComponent,
     ContactComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,30 @@
+<div class="list-group">
+  <div
+    class="list-group-item d-flex justify-content-around align-items-center"
+    *ngFor="let product of cartService.products$ | async"
+  >
+    <span class="me-3 fs-5">{{ product.name }}</span>
+    <span class="fs-7"> {{ product.price | currency }} </span>
+    <div class="d-flex align-items-center justify-content-center item">
+      <span
+        class="count count-btn count-btn-remove"
+        (click)="this.cartService.remove(product); $event.stopPropagation()"
+        >-</span
+      >
+      <span class="count">
+        {{ cartService.productCount(product.id!) }}
+      </span>
+      <span
+        class="count count-btn count-btn-add"
+        (click)="this.cartService.add(product); $event.stopPropagation()"
+        >+</span
+      >
+    </div>
+    <span class="fs-4 sum" >
+      {{ cartService.productPrice(product) | currency }}
+    </span>
+  </div>
+  <span class="fw-bold fs-3 align-self-end me-2"
+    >Total: {{ cartService.totalPrice$ | async | currency }}</span
+  >
+</div>

@@ -1,0 +1,54 @@
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: 0.25rem;
+}
+
+.list-group-item {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid #dfd7ca;
+  &:not(:first-child) {
+    border-top-width: 0;
+  }
+  &:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+}
+
+.sum {
+  width: 15%;
+}
+
+.count {
+  border: 1px solid #dfd7ca;
+  border-radius: 0;
+  background-color: #fff;
+  font-size: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+  &-btn {
+    cursor: pointer;
+    &-remove {
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+      border-right: 0;
+    }
+    &-add {
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+      border-left: 0;
+    }
+    &:focus,
+    &:hover {
+      background-color: #f8f5f0 !important;
+    }
+  }
+}

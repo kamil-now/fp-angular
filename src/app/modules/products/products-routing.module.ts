@@ -12,7 +12,7 @@ const routes: Routes = [
     path: ':id',
     component: ProductDetailsComponent
   }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
