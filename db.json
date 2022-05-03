@@ -19,6 +19,21 @@
     }
   },
   "contact": [
+    {
+      "email": "test@test.com",
+      "message": "test",
+      "id": 1
+    },
+    {
+      "email": "test@long-message.com",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus et metus quis dapibus. Vivamus blandit bibendum dui, ac mattis neque interdum ac. Phasellus pellentesque, sapien ac venenatis nec",
+      "id": 2
+    },
+    {
+      "email": "test@test.com",
+      "message": "another test",
+      "id": 3
+    }
   ],
   "products": [
     {
