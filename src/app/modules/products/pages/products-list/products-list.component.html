@@ -26,6 +26,14 @@
       </span>
     </div>
     <div>
+      <button
+        class="btn btn-info me-2"
+        tabindex="0"
+        *ngIf="product.id"
+        (click)="cartService.add(product)"
+      >
+        Add to cart
+      </button>
       <button class="btn btn-info me-2" tabindex="0" [routerLink]="product.id">
         View Details
       </button>

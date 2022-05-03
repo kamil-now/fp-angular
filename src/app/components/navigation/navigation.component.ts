@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core'
 import { Subject, takeUntil } from 'rxjs'
 import { AuthService } from 'src/app/modules/core/services/auth.service'
+import { CartService } from 'src/app/modules/core/services/cart.service'
 
 @Component({
   selector: 'app-navigation',
@@ -26,7 +27,8 @@ export class NavigationComponent implements OnDestroy {
   private readonly _isDestroyed = new Subject<void>()
 
   constructor(
-    readonly authService: AuthService
+    readonly authService: AuthService,
+    readonly cartService: CartService
   ) {
     authService.isAuthenticated$
       .pipe(takeUntil(this._isDestroyed))
